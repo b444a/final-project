@@ -1,2 +1,155 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="app-shell">
+
+  <!-- =====================
+       INTRO SCREEN
+       ===================== -->
+  <section id="introScreen" class="screen intro-screen">
+
+    <div class="particles" aria-hidden="true"></div>
+
+    <div class="intro-card">
+      <h1 class="main-title">
+        <span class="typewriter">hello to my future self</span>
+      </h1>
+
+      <p class="subtitle">
+        A public archive of anonymous letters from today-you to future-you.
+      </p>
+
+      <!-- POP BUBBLE -->
+      <div class="intro-bubble pop-bubble">
+        <p class="bubble-label">WELCOME TO THE FUTURE</p>
+        <p id="introPrompt" class="bubble-text">
+          what do you want to say?
+        </p>
+      </div>
+
+      <div class="button-row">
+        <button id="startWriting" class="primary-btn" type="button">
+          Write a letter
+        </button>
+        <button id="goArchiveFromIntro" class="secondary-btn" type="button">
+          Browse the archive
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       WRITE SCREEN
+       ===================== -->
+  <section id="writeScreen" class="screen write-screen hidden">
+    <button class="ghost-back" id="backFromWrite" type="button">← back</button>
+
+    <div class="write-layout">
+
+      <!-- ENVELOPE -->
+    <div class="write-envelope" id="writeEnvelope">
+  <div class="envelope-back"></div>
+
+  <div class="envelope-body">
+    <div class="envelope-left"></div>
+    <div class="envelope-right"></div>
+    <div class="envelope-bottom"></div>
+  </div>
+
+  <div class="envelope-flap"></div>
+
+</div>
+<div class="wax-seal" id="waxSeal">
+  <div class="seal-drip"></div>
+  <div class="seal-stamp">✦</div>
+</div>
+
+
+      <!-- PROMPT BUBBLE -->
+      <div class="prompt-bubble">
+        <span class="prompt-label">PROMPT</span>
+        <p id="activePrompt" class="prompt-text"></p>
+      </div>
+
+      <!-- FORM -->
+      <form id="entryForm" class="entry-form">
+        <label for="messageInput" class="field-label">Your letter</label>
+
+        <textarea
+          id="messageInput"
+          name="message"
+          placeholder="Write something to your future self..."
+          required
+        ></textarea>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label">Tag this letter</label>
+            <select id="tagSelect" name="tag">
+  <option value="hopeful">hopeful</option>
+  <option value="anxious">anxious</option>
+ <option value="advice">future advice</option>
+
+  <option value="reflective">reflective</option>
+  <option value="other">other</option>
+</select>
+
+          </div>
+
+          <div class="field">
+            <label class="field-label">When is this letter for?</label>
+            <select id="timeframeSelect" name="timeframe">
+              <option value="next week">next week</option>
+              <option value="next year">next year</option>
+              <option value="5 years from now">5 years from now</option>
+              <option value="10 years from now">10 years from now</option>
+              <option value="sometime in the future">sometime in the future</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="primary-btn wide-btn">
+          Send letter
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =====================
+       ARCHIVE SCREEN
+       ===================== -->
+  <section id="archiveScreen" class="screen archive-screen hidden">
+    <button class="ghost-back" id="backFromArchive" type="button">← back</button>
+
+    <div class="archive-header">
+  <h2 class="archive-title">The Archive</h2>
+  <p class="archive-subtitle">
+    pssst… don’t worry, your letter is anonymous
+  </p>
+
+
+      <div class="filters-row">
+  <button class="filter-btn active" data-tag="all">all</button>
+  <button class="filter-btn" data-tag="hopeful">hopeful</button>
+  <button class="filter-btn" data-tag="anxious">anxious</button>
+  <button class="filter-btn" data-tag="advice">advice</button>
+  <button class="filter-btn" data-tag="reflective">reflective</button>
+  <button class="filter-btn" data-tag="other">other</button>
+</div>
+
+    </div>
+
+    <div id="envelopeGrid" class="envelope-grid"></div>
+  </section>
+
+  <!-- =====================
+       MODAL
+       ===================== -->
+  <div id="letterModal" class="modal hidden">
+    <div class="modal-inner">
+      <p id="modalPrompt"></p>
+      <p id="modalMeta"></p>
+      <p id="modalMessage"></p>
+      <button id="closeModal" class="primary-btn small-btn">Close</button>
+    </div>
+  </div>
+
+
+</div>

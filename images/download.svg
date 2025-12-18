@@ -1,0 +1,53 @@
+<svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Soft vanilla gradient for the body -->
+    <linearGradient id="envBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4dec1"></stop>
+      <stop offset="100%" stop-color="#e7c7a0"></stop>
+    </linearGradient>
+
+    <!-- Slightly darker gradient for the flap -->
+    <linearGradient id="envFlap" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0d3aa"></stop>
+      <stop offset="100%" stop-color="#ddb88e"></stop>
+    </linearGradient>
+
+    <!-- Inner shadow for the “V” seams -->
+    <linearGradient id="envInner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0b98e"></stop>
+      <stop offset="100%" stop-color="#f4dec1"></stop>
+    </linearGradient>
+
+    <!-- Light drop shadow -->
+    <filter id="envShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.25)"></feDropShadow>
+    </filter>
+  </defs>
+
+  <!-- Envelope body -->
+  <g filter="url(#envShadow)">
+    <rect x="8" y="12" width="244" height="156" rx="14" fill="url(#envBody)"></rect>
+
+    <!-- Bottom triangle (the back seam) -->
+    <path d="
+      M 12 16
+      L 130 112
+      L 248 16
+      Z
+    " fill="url(#envInner)"></path>
+
+    <!-- Flap -->
+    <path d="
+      M 12 16
+      L 130 108
+      L 248 16
+      Q 130 40 12 16
+    " fill="url(#envFlap)"></path>
+
+    <!-- Subtle highlight on flap edge -->
+    <path d="
+      M 18 22
+      Q 130 44 242 22
+    " stroke="rgba(255,255,255,0.45)" stroke-width="3" fill="none"></path>
+  </g>
+</svg>
