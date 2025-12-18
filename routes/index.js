@@ -17,4 +17,13 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
+router.get('/', async (req, res) => {
+  try {
+    const entries = await Entry.find().sort({ createdAt: -1 }).limit(20);
+    res.render('index', { entries });
+  } catch (err) {
+    console.error('Error loading homepage:', err);
+    res.render('index', { entries: [] }); // prevents crash
+  }
+});
 
